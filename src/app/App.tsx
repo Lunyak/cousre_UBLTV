@@ -1,35 +1,25 @@
-import { AppRouter } from './providers/router'
-import { Navbar } from 'widgets/Navbar'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { useTheme } from './providers/ThemeProvider'
-import { SideBar } from 'widgets/Sidebar/ui'
-import { Suspense, useEffect } from 'react'
-import './styles/index.scss'
-import { useTranslation } from 'react-i18next'
+import React, { Suspense, useEffect } from 'react';
+import './styles/index.scss';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { useTheme } from 'app/providers/ThemeProvider';
+import { AppRouter } from 'app/providers/router';
+import { Navbar } from 'widgets/Navbar';
+import { Sidebar } from 'widgets/Sidebar';
 
-const Сomponent = () => {
+function App() {
+    const { theme } = useTheme();
 
-}
-
-const App = () => {
-  const { theme } = useTheme()
-  useEffect(() => {
-    if (Math.random() < 0.5) {
-      throw new Error("Оп па");
-      
-    }
-  }, [])
-  return (
-    <div className={classNames('app', {}, [theme])}>
-      <Suspense fallback="">
-        <Navbar />
-        <div className="content-page">
-          <SideBar />
-          <AppRouter />
+    return (
+        <div className={classNames('app', {}, [theme])}>
+            <Suspense fallback="">
+                <Navbar />
+                <div className="content-page">
+                    <Sidebar />
+                    <AppRouter />
+                </div>
+            </Suspense>
         </div>
-      </Suspense>
-    </div>
-  )
+    );
 }
 
-export default App
+export default App;
