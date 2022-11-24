@@ -10,7 +10,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
   },
-  plugins: ["react", "@typescript-eslint", "i18next"],
+  plugins: ["react", "@typescript-eslint", "i18next", 'react-hooks'],
   rules: {
     // "react/jsx-indent": [2, {indentMode: 4, ignoreTernaryOperator: true}]
     "react/jsx-indent": [2, 2],
@@ -34,6 +34,11 @@ module.exports = {
       { markupOnly: true, ignoreAttribute: ["data-testid", "to"] },
     ],
     "max-length": ["error", { ignoreComments: true, code: 100 }],
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
+    "no-param-reassing": "off"
   },
   globals: {
     __IS_DEV__: true,
